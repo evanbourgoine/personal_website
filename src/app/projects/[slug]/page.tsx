@@ -17,7 +17,7 @@ The app features a clean, intuitive interface built entirely in SwiftUI, followi
 
 Key technical challenges included optimizing Firebase queries for real-time updates, implementing efficient caching strategies to reduce API calls, and designing a scalable data model that could handle growing user bases without performance degradation.`,
     technologies: ["SwiftUI", "Firebase", "Apple MusicKit", "iOS", "Firestore", "CloudKit"],
-    githubUrl: "https://github.com/yourusername/wave",
+    githubUrl: "https://github.com/evanbourgoine/wave-ios",
     liveUrl: undefined,
     category: 'iOS',
     images: [
@@ -81,20 +81,20 @@ The project demonstrates my understanding of backend system design, containeriza
       "Reduced response times by 40% with caching",
     ],
   },
-  'volleyball-tryout-tracker': {
-    title: "Volleyball Tryout Tracker",
-    description: "A real-time player evaluation system that revolutionizes how coaches assess athletes during tryouts.",
+  'cicd-monitoring-dashboard': {
+    title: "CI/CD Pipeline Monitoring Dashboard",
+    description: "Full-stack CI/CD monitoring dashboard with MongoDB, MySQL, and GitHub Actions integration.",
     longDescription: `Built for a local volleyball club, this application solves the problem of real-time player evaluation during tryouts. Coaches needed a way to quickly rate players across multiple criteria without slowing down the tryout process.
 
 The system integrates Google Forms for rapid data entry and Google Sheets API for real-time calculations and rankings. As coaches submit evaluations, players' scores are automatically calculated and updated live on a React dashboard visible to all coaching staff.
 
 The application handles concurrent data entry from multiple coaches, prevents duplicate entries, and provides instant statistical analysis including averages, rankings, and comparison tools. This reduced tryout evaluation time by 60% while increasing data accuracy.`,
-    technologies: ["React", "Google Sheets API", "JavaScript", "Node.js", "Express", "Google Forms API"],
-    githubUrl: "https://github.com/yourusername/volleyball-tracker",
+    technologies: ["React", "Node.js", "MySQL", "MongoDB", "RestAPI", "Docker"],
+    githubUrl: "https://github.com/evanbourgoine/cicd-pipeline-dashboard",
     liveUrl: undefined,
     category: 'Full-Stack',
     images: [
-      "/projects/volleyball-1.png",
+      "/projects/cicd_dashboard.png",
     ],
     features: [
       "Real-time scoring and ranking updates",

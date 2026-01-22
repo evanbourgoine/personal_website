@@ -11,11 +11,11 @@ export default function Home() {
       <main className="min-h-screen">
         <Hero 
           name="Evan Bourgoine"
-          title="Computer Science @ Virginia Tech | Graduating May 2025"
+          title="Recent Computer Science Graduate @ Virginia Tech "
           description="Passionate about building impactful full-stack applications and creating seamless user experiences. I love turning complex problems into elegant solutions."
-          email="your.email@example.com"
-          linkedin="https://linkedin.com/in/yourprofile"
-          github="https://github.com/yourusername"
+          email="evan.bourgoine@gmail.com"
+          linkedin="https://linkedin.com/in/evan-bourgoine"
+          github="https://github.com/evanbourgoine"
           profileImage="/profile.jpg"
           resumePath="/Evan_Bourgoine_Resume.pdf"
         />
