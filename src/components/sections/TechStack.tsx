@@ -1,7 +1,18 @@
-import TechCategory from "./TechCategory";
-import AnimatedSection from "./AnimatedSection";
+/**
+ * TechStack.tsx — Displays all technical skills organized by category.
+ *
+ * Renders a 2-column grid (on desktop) of TechCategory cards.
+ * Each card fades in with a staggered animation using AnimatedSection.
+ *
+ * The skill arrays are defined directly here since they're static content
+ * that doesn't need to live in a separate data file.
+ */
+
+import TechCategory from "@/components/sections/TechCategory";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function TechStack() {
+  // ---- Skill lists grouped by category ----
   const frontend = [
     "React",
     "Next.js",
@@ -9,7 +20,7 @@ export default function TechStack() {
     "JavaScript",
     "SwiftUI",
     "Tailwind CSS",
-    "HTML/CSS"
+    "HTML/CSS",
   ];
 
   const backend = [
@@ -19,7 +30,7 @@ export default function TechStack() {
     "PostgreSQL",
     "Firebase",
     "REST APIs",
-    "Microservices"
+    "Microservices",
   ];
 
   const tools = [
@@ -29,30 +40,26 @@ export default function TechStack() {
     "Postman",
     "VS Code",
     "Xcode",
-    "Linux/Unix"
+    "Linux/Unix",
   ];
 
-  const other = [
-    "Python",
-    "C",
-    "SQL",
-    "MongoDB",
-    "Redis",
-    "GraphQL"
-  ];
+  const other = ["Python", "C", "SQL", "MongoDB", "Redis", "GraphQL"];
 
   return (
     <section id="tech-stack" className="py-12 md:py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section heading */}
         <AnimatedSection animation="fade-in">
           <h3 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
             Tech Stack
           </h3>
           <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto px-4">
-            Technologies and tools I've worked with across different projects and experiences
+            Technologies and tools I&apos;ve worked with across different
+            projects and experiences
           </p>
         </AnimatedSection>
 
+        {/* 2-column grid of category cards with staggered animations */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           <AnimatedSection animation="fade-in-left" delay={100}>
             <TechCategory title="Frontend" skills={frontend} />

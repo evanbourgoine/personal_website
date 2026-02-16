@@ -1,7 +1,19 @@
-import { FaGithub } from 'react-icons/fa';
-import { HiExternalLink } from 'react-icons/hi';
-import Image from 'next/image';
-import Link from 'next/link';
+/**
+ * ProjectCard.tsx — A card component for displaying a project summary.
+ *
+ * Shows:
+ *   - A clickable image preview (links to the project detail page)
+ *   - Title, short description
+ *   - Technology tags (first 4, with a "+N more" overflow indicator)
+ *   - Action buttons: "View Details", GitHub link, and optional live demo
+ *
+ * Used on the /projects page to render each project in a grid.
+ */
+
+import { FaGithub } from "react-icons/fa";
+import { HiExternalLink } from "react-icons/hi";
+import Image from "next/image";
+import Link from "next/link";
 
 interface ProjectCardProps {
   title: string;
@@ -25,7 +37,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 hover:shadow-xl flex flex-col">
-      {/* Clickable Image/Preview */}
+      {/* ---- Clickable image / gradient placeholder ---- */}
       <Link href={`/projects/${slug}`}>
         {image ? (
           <div className="relative w-full h-48 bg-gray-100 cursor-pointer overflow-hidden group">
@@ -35,25 +47,33 @@ export default function ProjectCard({
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
+            {/* Subtle dark overlay on hover */}
             <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
           </div>
         ) : (
+          /* No image — show a gradient placeholder */
           <div className="w-full h-48 bg-gradient-to-br from-primary-light to-blue-100 flex items-center justify-center cursor-pointer group">
-            <span className="text-6xl group-hover:scale-110 transition-transform duration-300">💻</span>
+            <span className="text-6xl group-hover:scale-110 transition-transform duration-300">
+              💻
+            </span>
           </div>
         )}
       </Link>
 
-      {/* Content */}
+      {/* ---- Card body ---- */}
       <div className="p-6 flex flex-col flex-grow">
+        {/* Title links to detail page */}
         <Link href={`/projects/${slug}`} className="group">
           <h4 className="text-2xl font-bold text-primary mb-3 group-hover:text-primary-dark transition-colors">
             {title}
           </h4>
         </Link>
-        <p className="text-gray-700 mb-4 flex-grow leading-relaxed">{description}</p>
-        
-        {/* Tech Stack Tags */}
+
+        <p className="text-gray-700 mb-4 flex-grow leading-relaxed">
+          {description}
+        </p>
+
+        {/* Technology tags — show first 4, overflow as "+N more" */}
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.slice(0, 4).map((tech) => (
             <span
@@ -70,7 +90,7 @@ export default function ProjectCard({
           )}
         </div>
 
-        {/* Links */}
+        {/* ---- Action buttons ---- */}
         <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100">
           <Link
             href={`/projects/${slug}`}
@@ -83,7 +103,6 @@ export default function ProjectCard({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 text-sm font-medium"
             >
               <FaGithub className="w-4 h-4" />
@@ -94,7 +113,6 @@ export default function ProjectCard({
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-200 text-sm font-medium"
             >
               <HiExternalLink className="w-4 h-4" />

@@ -1,4 +1,11 @@
-import SkillBadge from "./SkillBadge";
+/**
+ * TechCategory.tsx — A card that groups skills under a category heading.
+ *
+ * Used inside TechStack to render one card per category (e.g. "Frontend",
+ * "Backend"). Each card maps its skills array to SkillBadge components.
+ */
+
+import SkillBadge from "@/components/ui/SkillBadge";
 
 interface TechCategoryProps {
   title: string;
