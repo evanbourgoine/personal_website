@@ -1,17 +1,18 @@
 /**
- * projects/page.tsx — Projects list page (/projects).
+ * projects/page.tsx — Projects page (/projects).
  *
- * Displays all projects as a responsive card grid.
- * Each card links to its detail page at /projects/[slug].
+ * Shows project categories first (iOS, Full-Stack, Backend, etc.).
+ * Clicking a category reveals the projects within it, or displays
+ * a friendly empty state if none exist yet.
  *
- * Project data is imported from the centralized data module
- * so there's a single source of truth for all project info.
+ * The interactive browsing logic lives in the ProjectsBrowser client
+ * component. This server component just provides metadata and the
+ * page heading.
  */
 
 import type { Metadata } from "next";
-import { projects } from "@/data/projects";
-import ProjectCard from "@/components/sections/ProjectCard";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import ProjectsBrowser from "@/components/sections/ProjectsBrowser";
 
 export const metadata: Metadata = {
   title: "Projects | Evan Bourgoine",
@@ -30,32 +31,12 @@ export default function ProjectsPage() {
               Projects
             </h3>
             <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto px-4">
-              A collection of projects I&apos;ve built — from iOS apps to
-              full-stack web platforms
+              Browse by category to explore the projects I&apos;ve built
             </p>
           </AnimatedSection>
 
-          {/* Project cards grid — 1 column on mobile, 2 on desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {projects.map((project, index) => (
-              <AnimatedSection
-                key={project.id}
-                animation={index % 2 === 0 ? "fade-in-left" : "fade-in-right"}
-                delay={(index + 1) * 100}
-              >
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  technologies={project.technologies}
-                  githubUrl={project.githubUrl}
-                  liveUrl={project.liveUrl}
-                  image={project.imageUrl}
-                  category={project.category}
-                  slug={project.id}
-                />
-              </AnimatedSection>
-            ))}
-          </div>
+          {/* Category → project browser (client component) */}
+          <ProjectsBrowser />
         </div>
       </section>
     </main>
