@@ -267,3 +267,36 @@ body {
 .delay-700 {
   animation-delay: 700ms;
 }
+
+/* =========================================================================
+   8. HERO-SPECIFIC UTILITIES — used by the redesigned home page hero.
+   ========================================================================= */
+
+/* Blue-to-purple gradient text for the hero name */
+.gradient-text-hero {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Frosted glass pill for hero badges (location, education) */
+.badge-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Slow spin for the decorative ring behind the profile photo */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
