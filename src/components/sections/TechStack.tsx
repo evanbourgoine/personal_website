@@ -4,46 +4,106 @@
  * Renders a 2-column grid (on desktop) of TechCategory cards.
  * Each card fades in with a staggered animation using AnimatedSection.
  *
- * The skill arrays are defined directly here since they're static content
- * that doesn't need to live in a separate data file.
+ * Every skill includes a technology icon from the react-icons Simple Icons
+ * (Si) set. Skills without a well-known logo omit the icon and display
+ * as text-only badges.
  */
 
 import TechCategory from "@/components/sections/TechCategory";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import type { Skill } from "@/components/sections/TechCategory";
+
+// ---------------------------------------------------------------------------
+// Icon imports — all from the Simple Icons (Si) set in react-icons.
+// Each icon is a lightweight inline SVG component.
+// ---------------------------------------------------------------------------
+
+// Frontend icons
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiSwift,
+  SiTailwindcss,
+  SiHtml5,
+} from "react-icons/si";
+
+// Backend icons
+import {
+  SiSpringboot,
+  SiNodedotjs,
+  SiPostgresql,
+  SiFirebase,
+} from "react-icons/si";
+
+// Tools & Platforms icons
+import {
+  SiGit,
+  SiDocker,
+  SiAmazonwebservices,
+  SiPostman,
+  SiXcode,
+  SiLinux,
+} from "react-icons/si";
+
+// VS Code icon lives in the VS Code Icons (Vsc) set, not Simple Icons.
+import { VscVscode } from "react-icons/vsc";
+
+// Other icons
+import {
+  SiPython,
+  SiC,
+  SiMongodb,
+  SiRedis,
+  SiGraphql,
+} from "react-icons/si";
+
+// Java doesn't have a Simple Icon — use Devicons instead.
+import { DiJava } from "react-icons/di";
 
 export default function TechStack() {
   // ---- Skill lists grouped by category ----
-  const frontend = [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "JavaScript",
-    "SwiftUI",
-    "Tailwind CSS",
-    "HTML/CSS",
+  // Each skill has a `name` (displayed text) and an optional `icon`.
+
+  const frontend: Skill[] = [
+    { name: "React", icon: <SiReact /> },
+    { name: "Next.js", icon: <SiNextdotjs /> },
+    { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "JavaScript", icon: <SiJavascript /> },
+    { name: "SwiftUI", icon: <SiSwift /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+    { name: "HTML/CSS", icon: <SiHtml5 /> },
   ];
 
-  const backend = [
-    "Java",
-    "Spring Boot",
-    "Node.js",
-    "PostgreSQL",
-    "Firebase",
-    "REST APIs",
-    "Microservices",
+  const backend: Skill[] = [
+    { name: "Java", icon: <DiJava /> },
+    { name: "Spring Boot", icon: <SiSpringboot /> },
+    { name: "Node.js", icon: <SiNodedotjs /> },
+    { name: "PostgreSQL", icon: <SiPostgresql /> },
+    { name: "Firebase", icon: <SiFirebase /> },
+    { name: "REST APIs" }, // No well-known logo — text only
+    { name: "Microservices" }, // No well-known logo — text only
   ];
 
-  const tools = [
-    "Git",
-    "Docker",
-    "AWS",
-    "Postman",
-    "VS Code",
-    "Xcode",
-    "Linux/Unix",
+  const tools: Skill[] = [
+    { name: "Git", icon: <SiGit /> },
+    { name: "Docker", icon: <SiDocker /> },
+    { name: "AWS", icon: <SiAmazonwebservices /> },
+    { name: "Postman", icon: <SiPostman /> },
+    { name: "VS Code", icon: <VscVscode /> },
+    { name: "Xcode", icon: <SiXcode /> },
+    { name: "Linux/Unix", icon: <SiLinux /> },
   ];
 
-  const other = ["Python", "C", "SQL", "MongoDB", "Redis", "GraphQL"];
+  const other: Skill[] = [
+    { name: "Python", icon: <SiPython /> },
+    { name: "C", icon: <SiC /> },
+    { name: "SQL" }, // No well-known logo — text only
+    { name: "MongoDB", icon: <SiMongodb /> },
+    { name: "Redis", icon: <SiRedis /> },
+    { name: "GraphQL", icon: <SiGraphql /> },
+  ];
 
   return (
     <section id="tech-stack" className="py-12 md:py-16 bg-white">
