@@ -1,15 +1,13 @@
 /**
- * Header.tsx — Sticky site-wide navigation bar.
+ * Header.tsx — Sticky site-wide navigation bar with dark gradient theme.
  *
- * Renders at the top of every page via the root layout.
+ * Matches the hero/CTA dark gradient aesthetic. Uses a frosted glass
+ * (backdrop-blur) effect so page content is subtly visible behind it.
  *
  * Features:
- *   - Brand name on the left links back to home.
+ *   - Brand name on the left (gradient text) links back to home.
  *   - Desktop nav links on the right (hidden on mobile).
  *   - Mobile hamburger menu that toggles a dropdown nav.
- *
- * Navigation links point to separate pages (/tech-stack, /projects)
- * rather than anchor links on one long page.
  */
 
 "use client";
@@ -31,13 +29,21 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header
+      className="sticky top-0 z-50 border-b border-white/10"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,58,95,0.95))",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      }}
+    >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          {/* Brand name — links home */}
+          {/* Brand name — gradient text, links home */}
           <Link
             href="/"
-            className="text-xl sm:text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
+            className="text-xl sm:text-2xl font-bold gradient-text-hero hover:opacity-80 transition-opacity"
           >
             Evan Bourgoine
           </Link>
@@ -48,7 +54,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-600 hover:text-primary transition-colors duration-200"
+                className="text-blue-200/80 hover:text-white transition-colors duration-200"
               >
                 {link.label}
               </Link>
@@ -58,7 +64,7 @@ export default function Header() {
           {/* Mobile hamburger button — visible below md breakpoint */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 text-gray-600 hover:text-primary transition-colors"
+            className="md:hidden p-2 text-blue-200/80 hover:text-white transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -71,14 +77,14 @@ export default function Header() {
 
         {/* Mobile dropdown navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+          <div className="md:hidden mt-4 pb-4 border-t border-white/10 pt-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={toggleMenu}
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 text-lg"
+                  className="text-blue-200/80 hover:text-white transition-colors duration-200 text-lg"
                 >
                   {link.label}
                 </Link>

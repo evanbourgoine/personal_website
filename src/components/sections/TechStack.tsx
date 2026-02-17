@@ -1,9 +1,11 @@
 /**
  * TechStack.tsx — Displays all technical skills organized by category.
  *
- * Renders a 2-column grid (on desktop) of TechCategory cards.
- * Each card fades in with a staggered animation using AnimatedSection.
+ * Features a dark gradient page header that matches the site-wide theme,
+ * followed by a 2-column grid (on desktop) of TechCategory cards on a
+ * light background.
  *
+ * Each card fades in with a staggered animation using AnimatedSection.
  * Every skill includes a technology icon from the react-icons Simple Icons
  * (Si) set. Skills without a well-known logo omit the icon and display
  * as text-only badges.
@@ -106,35 +108,58 @@ export default function TechStack() {
   ];
 
   return (
-    <section id="tech-stack" className="py-12 md:py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section heading */}
-        <AnimatedSection animation="fade-in">
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">
-            Tech Stack
-          </h3>
-          <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto px-4">
-            Technologies and tools I&apos;ve worked with across different
-            projects and experiences
-          </p>
-        </AnimatedSection>
+    <>
+      {/* ---- Dark gradient page header (matches hero/CTA theme) ---- */}
+      <section
+        className="relative overflow-hidden py-16 md:py-20"
+        style={{
+          background:
+            "linear-gradient(135deg, #0f172a 0%, #1e3a5f 25%, #2563eb 60%, #7c3aed 100%)",
+        }}
+      >
+        {/* Decorative floating orbs for depth */}
+        <div
+          className="absolute top-0 right-0 w-72 h-72 rounded-full opacity-20 blur-3xl"
+          style={{ background: "radial-gradient(circle, #60a5fa, transparent)" }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-15 blur-3xl"
+          style={{ background: "radial-gradient(circle, #a78bfa, transparent)" }}
+        />
 
-        {/* 2-column grid of category cards with staggered animations */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-          <AnimatedSection animation="fade-in-left" delay={100}>
-            <TechCategory title="Frontend" skills={frontend} />
-          </AnimatedSection>
-          <AnimatedSection animation="fade-in-right" delay={200}>
-            <TechCategory title="Backend" skills={backend} />
-          </AnimatedSection>
-          <AnimatedSection animation="fade-in-left" delay={300}>
-            <TechCategory title="Tools & Platforms" skills={tools} />
-          </AnimatedSection>
-          <AnimatedSection animation="fade-in-right" delay={400}>
-            <TechCategory title="Other" skills={other} />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <AnimatedSection animation="fade-in">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text-hero">
+              Tech Stack
+            </h1>
+            <p className="text-blue-200/80 text-lg md:text-xl max-w-2xl mx-auto">
+              Technologies and tools I&apos;ve worked with across different
+              projects and experiences
+            </p>
           </AnimatedSection>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ---- Skill category grid ---- */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* 2-column grid of category cards with staggered animations */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+            <AnimatedSection animation="fade-in-left" delay={100}>
+              <TechCategory title="Frontend" skills={frontend} color="#2563eb" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-in-right" delay={200}>
+              <TechCategory title="Backend" skills={backend} color="#7c3aed" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-in-left" delay={300}>
+              <TechCategory title="Tools & Platforms" skills={tools} color="#0d9488" />
+            </AnimatedSection>
+            <AnimatedSection animation="fade-in-right" delay={400}>
+              <TechCategory title="Other" skills={other} color="#f59e0b" />
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

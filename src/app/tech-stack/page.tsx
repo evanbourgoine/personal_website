@@ -2,7 +2,8 @@
  * tech-stack/page.tsx — Tech Stack page (/tech-stack).
  *
  * Dedicated page for displaying all technical skills.
- * The TechStack component handles the layout and content internally.
+ * Features a dark gradient hero-style header that matches the site theme,
+ * then delegates to the TechStack component for the skill grid.
  *
  * Metadata override sets a page-specific title in the browser tab.
  */
