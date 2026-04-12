@@ -151,6 +151,58 @@ export const projects: Project[] = [
 // This keeps the full detail data separate from the summary cards.
 // ---------------------------------------------------------------------------
 export const projectDetails: Record<string, ProjectDetail> = {
+  // Add this to the projects object at the top
+  "callpilot-ai": {
+    title: "CallPilot AI",
+    description:
+      "AI-powered voice sales platform enabling businesses to automatically call warm leads using advanced AI voice technology.",
+    longDescription: `CallPilot AI transforms how businesses handle outbound sales by leveraging cutting-edge AI voice technology. The platform enables companies to automatically call warm leads with natural-sounding AI agents that can hold intelligent conversations, qualify prospects, and schedule meetings.
+
+Built with a modern tech stack including Next.js for the frontend, Supabase for real-time data management, and integrations with VAPI for voice AI, ElevenLabs for text-to-speech, and Claude for intelligent conversation handling. The system supports bulk lead uploads via CSV/Excel, real-time call monitoring, and automated outcome classification.
+
+The platform is designed for scalability and ease of use, allowing businesses to set up campaigns in minutes and start converting leads immediately. Each customer receives dedicated phone numbers provisioned through Twilio, ensuring professional caller ID and reliability.`,
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "VAPI",
+      "Claude AI",
+      "Twilio",
+      "ElevenLabs",
+      "Stripe",
+    ],
+    githubUrl: "https://github.com/yourusername/callpilot",
+    liveUrl: "https://callpilot.ai",
+    category: "Full-Stack",
+    images: [
+      "/projects/callpilot-1.png",
+      "/projects/callpilot-2.png",
+      "/projects/callpilot-3.png",
+    ],
+    features: [
+      "Bulk CSV/Excel lead upload for campaign management",
+      "AI voice agents powered by VAPI and ElevenLabs",
+      "Real-time call tracking and monitoring",
+      "Automated outcome classification using Claude AI",
+      "Email notifications for call completions",
+      "Google/email authentication",
+      "Stripe billing integration",
+      "Dedicated phone numbers per customer via Twilio",
+      "Dark-themed, modern UI",
+    ],
+    challenges: [
+      "Orchestrating multiple AI APIs (VAPI, ElevenLabs, Claude) for seamless voice interactions",
+      "Managing real-time call state across distributed systems",
+      "Designing scalable phone number provisioning strategy",
+      "Implementing reliable webhook handling for call events",
+    ],
+    outcomes: [
+      "Local MVP build complete with core features implemented",
+      "7 major API integrations working in harmony",
+      "Production-ready architecture designed for scale",
+      "Preparing for DigitalOcean deployment",
+    ],
+  },
   "wave-music-app": {
     title: "Wave - Music Social App",
     description:

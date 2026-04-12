@@ -14,6 +14,7 @@ import Hero from "@/components/sections/Hero";
 import AboutMe from "@/components/sections/AboutMe";
 import FocusAreas from "@/components/sections/FocusAreas";
 import CallToAction from "@/components/sections/CallToAction";
+import CurrentProject from "@/components/sections/CurrentProject";
 
 export default function Home() {
   return (
@@ -31,6 +32,31 @@ export default function Home() {
         resumePath="/Evan_Bourgoine_Resume.pdf"
         location="Boston, MA"
         education="Virginia Tech '25"
+      />
+
+      {/* Currently Building Showcase */}
+      <CurrentProject
+        title="CallPilot AI"
+        tagline="AI-Powered Voice Sales for Businesses"
+        description="An AI voice agent platform that enables businesses to automatically call warm leads using VAPI, ElevenLabs TTS, and Claude for intelligent conversations. Features bulk lead upload, real-time call tracking, and automated outcome classification. Built with Next.js, Supabase, and Twilio for scalable, production-ready performance."
+        image="/projects/callpilot.png"
+        technologies={[
+          "Next.js",
+          "TypeScript",
+          "VAPI",
+          "Claude AI",
+          "Supabase",
+          "Twilio",
+          "ElevenLabs",
+        ]}
+        githubUrl="https://github.com/yourusername/callpilot"
+        liveUrl="https://callpilot.dev"
+        projectSlug="callpilot-ai"
+        stats={[
+          { label: "Integration", value: "7 APIs" },
+          { label: "Status", value: "MVP Ready" },
+          { label: "Tech Stack", value: "7 Tools" },
+        ]}
       />
 
       {/* Section 2 — Personal quick facts */}
