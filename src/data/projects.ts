@@ -137,7 +137,7 @@ export const projects: Project[] = [
     category: "data",
     githubUrl:
       "https://github.com/evanbourgoine/Healthcare-Claims-Analytics-Pipeline",
-    imageUrl: "/projects/eda-plots.png",
+    imageUrl: "/projects/eda_plots.png",
     highlights: [
       "Designed a normalized star schema across members, providers, and claims tables.",
       "Ran hypothesis testing with ANOVA, chi-square, and t-tests using SciPy.",
