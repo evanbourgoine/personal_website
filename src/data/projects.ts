@@ -292,9 +292,10 @@ Hypothesis testing using SciPy revealed a statistically significant association 
       "matplotlib",
       "seaborn",
     ],
-    githubUrl: "https://github.com/evanbourgoine/claims-pipeline",
+    githubUrl:
+      "https://github.com/evanbourgoine/Healthcare-Claims-Analytics-Pipeline",
     category: "data",
-    images: ["/projects/claims-eda.png", "/projects/claims-regression.png"],
+    images: ["/projects/eda_plots.png", "/projects/regression_plot.png"],
     features: [
       "Normalized PostgreSQL star schema with members, providers, and claims tables",
       "Automated CSV ingestion pipeline with deduplication",
