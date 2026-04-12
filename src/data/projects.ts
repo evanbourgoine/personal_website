@@ -135,8 +135,9 @@ export const projects: Project[] = [
       "Jupyter",
     ],
     category: "data",
-    githubUrl: "https://github.com/evanbourgoine/claims-pipeline",
-    imageUrl: "/projects/claims-eda.png",
+    githubUrl:
+      "https://github.com/evanbourgoine/Healthcare-Claims-Analytics-Pipeline",
+    imageUrl: "/projects/eda-plots.png",
     highlights: [
       "Designed a normalized star schema across members, providers, and claims tables.",
       "Ran hypothesis testing with ANOVA, chi-square, and t-tests using SciPy.",
@@ -172,7 +173,7 @@ The platform is designed for scalability and ease of use, allowing businesses to
       "Stripe",
     ],
     githubUrl: "https://github.com/yourusername/callpilot",
-    liveUrl: "https://callpilot.ai",
+    liveUrl: "https://callpilot.dev",
     category: "Full-Stack",
     images: [
       "/projects/callpilot-1.png",
