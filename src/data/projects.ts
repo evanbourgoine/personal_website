@@ -118,6 +118,32 @@ export const projects: Project[] = [
     ],
     date: "2025-08-20",
   },
+  {
+    id: "healthcare-claims-pipeline",
+    title: "Healthcare Claims Analytics Pipeline",
+    description:
+      "An end-to-end claims analytics pipeline ingesting 55,500 records into a normalized PostgreSQL schema with SQL segmentation, hypothesis testing, and regression modeling.",
+    longDescription:
+      "Built a full analytics pipeline on synthetic healthcare claims data, demonstrating SQL schema design, data ingestion, statistical analysis, and machine learning.",
+    technologies: [
+      "Python",
+      "PostgreSQL",
+      "SQL",
+      "pandas",
+      "scikit-learn",
+      "SciPy",
+      "Jupyter",
+    ],
+    category: "data",
+    githubUrl: "https://github.com/evanbourgoine/claims-pipeline",
+    imageUrl: "/projects/claims-eda.png",
+    highlights: [
+      "Designed a normalized star schema across members, providers, and claims tables.",
+      "Ran hypothesis testing with ANOVA, chi-square, and t-tests using SciPy.",
+      "Built linear and logistic regression models with scikit-learn.",
+    ],
+    date: "2026-04-12",
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -189,10 +215,7 @@ The project demonstrates my understanding of backend system design, containeriza
     ],
     githubUrl: "https://github.com/evanbourgoine/spring-microservices",
     category: "Backend",
-    images: [
-      "/projects/microservices-1.png",
-      "/projects/microservices-2.png",
-    ],
+    images: ["/projects/microservices-1.png", "/projects/microservices-2.png"],
     features: [
       "Service discovery and registration",
       "API Gateway with rate limiting",
@@ -246,6 +269,52 @@ The application handles concurrent data entry from multiple coaches, prevents du
       "Positive feedback from coaching staff on ease of use",
     ],
   },
+  "healthcare-claims-pipeline": {
+    title: "Healthcare Claims Analytics Pipeline",
+    description:
+      "An end-to-end analytics pipeline built on synthetic healthcare claims data, demonstrating SQL schema design, data ingestion, segmentation analysis, hypothesis testing, and regression modeling.",
+    longDescription: `Built a full claims analytics pipeline from scratch using a synthetic healthcare dataset of 55,500 records sourced from Kaggle.
+
+The pipeline ingests raw CSV data into a normalized PostgreSQL star schema with three tables — members, providers, and claims — deduplicating on load and preserving referential integrity through foreign keys.
+
+SQL segmentation queries analyze utilization metrics including average billing by medical condition, emergency admission rates by insurance provider, and average length of stay by diagnosis. A data quality audit identified 108 negative billing amounts (0.2%) flagged as likely refunds and excluded from modeling.
+
+Hypothesis testing using SciPy revealed a statistically significant association between gender and admission type (chi-square p=0.007), while billing amount showed no significant variation by admission type (ANOVA p=0.738). Linear and logistic regression models were built with scikit-learn and honestly documented — both models underperformed due to the synthetic nature of the data, demonstrating the ability to interpret and communicate model limitations to non-technical stakeholders.`,
+    technologies: [
+      "Python",
+      "PostgreSQL",
+      "SQL",
+      "pandas",
+      "scikit-learn",
+      "SciPy",
+      "SQLAlchemy",
+      "Jupyter",
+      "matplotlib",
+      "seaborn",
+    ],
+    githubUrl: "https://github.com/evanbourgoine/claims-pipeline",
+    category: "data",
+    images: ["/projects/claims-eda.png", "/projects/claims-regression.png"],
+    features: [
+      "Normalized PostgreSQL star schema with members, providers, and claims tables",
+      "Automated CSV ingestion pipeline with deduplication",
+      "SQL segmentation queries across utilization metrics",
+      "Hypothesis testing with ANOVA, chi-square, and t-tests",
+      "Linear and logistic regression modeling with scikit-learn",
+      "Data quality profiling with documented limitations",
+      "Non-technical findings summary formatted for stakeholder review",
+    ],
+    challenges: [
+      "Designing a normalized schema that mirrors real health plan data structures",
+      "Handling negative billing amounts and documenting them as a data quality issue",
+      "Interpreting and honestly communicating poor model performance caused by synthetic data",
+    ],
+    outcomes: [
+      "Successfully ingested and normalized 55,500 claims records into PostgreSQL",
+      "Identified statistically significant association between gender and admission type (p=0.007)",
+      "Produced a stakeholder-ready findings summary with methodology and limitations",
+    ],
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -253,9 +322,7 @@ The application handles concurrent data entry from multiple coaches, prevents du
 // ---------------------------------------------------------------------------
 
 /** Return all projects that match a given category. */
-export const getProjectsByCategory = (
-  category: ProjectCategory
-): Project[] => {
+export const getProjectsByCategory = (category: ProjectCategory): Project[] => {
   return projects.filter((project) => project.category === category);
 };
 
@@ -270,9 +337,7 @@ export const getAllCategories = (): ProjectCategoryInfo[] => {
 };
 
 /** Look up the full detail page data for a given slug. Returns undefined if not found. */
-export const getProjectDetail = (
-  slug: string
-): ProjectDetail | undefined => {
+export const getProjectDetail = (slug: string): ProjectDetail | undefined => {
   return projectDetails[slug];
 };
 
